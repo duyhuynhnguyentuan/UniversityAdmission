@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose')
 
 const subjectGroupSchema = mongoose.Schema(
   { 
@@ -18,4 +18,5 @@ const subjectGroupSchema = mongoose.Schema(
   }
 )
 
-export const SubjectGroup = mongoose.model('SubjectGroup', subjectGroupSchema);
+ const SubjectGroup = mongoose.model('SubjectGroup', subjectGroupSchema);
+ module.exports = SubjectGroup

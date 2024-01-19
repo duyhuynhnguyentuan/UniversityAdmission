@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose')
 
 const studyProfileSchema = mongoose.Schema(
   { 
@@ -12,5 +12,5 @@ const studyProfileSchema = mongoose.Schema(
     timestamps: true
   }
 )
-
-export const StudyProfile = mongoose.model('StudyProfile', studyProfileSchema);
+const StudyProfile = mongoose.model('StudyProfile', studyProfileSchema);
+module.exports = StudyProfile

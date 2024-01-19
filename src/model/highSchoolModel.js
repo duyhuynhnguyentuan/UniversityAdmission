@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose')
 
 const highSchoolSchema = mongoose.Schema(
   { 
@@ -26,4 +26,5 @@ const highSchoolSchema = mongoose.Schema(
   }
 )
 
-export const HighSchool = mongoose.model('MainSubject', highSchoolSchema);
+const HighSchool = mongoose.model('MainSubject', highSchoolSchema);
+module.exports = HighSchool

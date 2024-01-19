@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose')
 
 const universitySchema = mongoose.Schema(
   { 
@@ -34,5 +34,5 @@ const universitySchema = mongoose.Schema(
     timestamps: true
   }
 )
-
-export const University = mongoose.model('University', universitySchema);
+ const University = mongoose.model('University', universitySchema);
+ module.exports = University

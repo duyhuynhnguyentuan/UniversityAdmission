@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose')
 
 const formalMajorSchema = mongoose.Schema(
   { 
@@ -33,4 +33,5 @@ const formalMajorSchema = mongoose.Schema(
   }
 )
 
-export const FormalMajor = mongoose.model('FormalMajor', formalMajorSchema);
+const FormalMajor = mongoose.model('FormalMajor', formalMajorSchema);
+module.exports = FormalMajor

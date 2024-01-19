@@ -1,4 +1,5 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose')
+
 
 const admissionFormSchema = mongoose.Schema(
   { 
@@ -20,5 +21,5 @@ const admissionFormSchema = mongoose.Schema(
     timestamps: true
   }
 )
-
-export const AdmissionForm = mongoose.model('AdmissionForm', admissionFormSchema);
+ const AdmissionForm = mongoose.model('AdmissionForm', admissionFormSchema);
+ module.exports = AdmissionForm

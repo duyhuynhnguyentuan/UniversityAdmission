@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose')
 
 const certificateTypeSchema = mongoose.Schema(
   { 
@@ -17,4 +17,5 @@ const certificateTypeSchema = mongoose.Schema(
   }
 )
 
-export const CertificateType = mongoose.model('CertificateType', certificateTypeSchema);
+const CertificateType = mongoose.model('CertificateType', certificateTypeSchema);
+module.exports = CertificateType

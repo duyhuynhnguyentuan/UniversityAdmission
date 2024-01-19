@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose')
 
 const admissionMethodSchema = mongoose.Schema(
   { 
@@ -24,4 +24,5 @@ const admissionMethodSchema = mongoose.Schema(
 
 )
 
-export const AdmissionMethod = mongoose.model('AdmissionMethod', admissionMethodSchema);
+const AdmissionMethod = mongoose.model('AdmissionMethod', admissionMethodSchema);
+module.exports = AdmissionMethod

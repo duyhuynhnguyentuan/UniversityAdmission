@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose')
 
 const provinceSchema = mongoose.Schema(
   { 
@@ -13,4 +13,5 @@ const provinceSchema = mongoose.Schema(
   }
 )
 
-export const Province = mongoose.model('Province', provinceSchema);
+ const Province = mongoose.model('Province', provinceSchema);
+ module.exports = Province

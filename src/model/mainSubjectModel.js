@@ -1,6 +1,9 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
-const mainSubjectSchema = mongoose.Schema(
+// Assuming 'MainSubject' is your model name
+delete mongoose.connection.models['MainSubject'];
+
+const MainSubjectSchema = mongoose.Schema(
   { 
     name: {
       type: String,
@@ -18,6 +21,7 @@ const mainSubjectSchema = mongoose.Schema(
   {
     timestamps: true
   }
-)
+);
 
-export const MainSubject = mongoose.model('MainSubject', mainSubjectSchema);
+const MainSubject = mongoose.model('MainSubject', MainSubjectSchema);
+module.exports = MainSubject;

@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose')
 
 const schoolYearSchema = mongoose.Schema(
   { 
@@ -22,4 +22,5 @@ const schoolYearSchema = mongoose.Schema(
   }
 )
 
-export const SchoolYear = mongoose.model('Province', schoolYearSchema);
+const SchoolYear = mongoose.model('Province', schoolYearSchema);
+module.exports = SchoolYear

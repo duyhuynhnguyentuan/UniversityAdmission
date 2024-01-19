@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose')
 
 const majorInPlanSchema = mongoose.Schema(
   { 
@@ -25,4 +25,5 @@ const majorInPlanSchema = mongoose.Schema(
   }
 )
 
-export const MajorInPlan = mongoose.model('MajorInPlan', majorInPlanSchema);
+ const MajorInPlan = mongoose.model('MajorInPlan', majorInPlanSchema);
+ module.exports = MajorInPlan
