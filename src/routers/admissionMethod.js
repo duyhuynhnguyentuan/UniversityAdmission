@@ -1,13 +1,8 @@
 const express = require('express');
-const AdmissionMethod = require('../model/admissionMethod');
-const router = new express.Router();
+const router = express.Router();
+const {
+    getAdmissionMethod
+} = require("../controllers/AdmissionMethodCtrl")
 
-router.get('/admissionMethod', async (req, res) => {
-    try {
-        const admissionMethod = AdmissionMethod.find({})
-        res.send(admissionMethod)
-    } catch (error) {
-        res.status(500).send(error)
-    }
-})  
+router.get('/admissionMethod', getAdmissionMethod)
 module.exports = router

@@ -1,13 +1,20 @@
 
 const express = require('express');
-const app = express()
+const app = express();
+const port = 8000;
+const dotenv = require('dotenv').config();
+const morgan = require('morgan');
+const dbConnect = require('./config/mongoose');
 const admissionFormRouter = require('./routers/admissionForm')
-const admissionMethod = require('./routers/admissionMethod')
+const admissionMethodRouter = require('./routers/admissionMethod')
 
-const port = process.env.PORT || 9000;
+dbConnect();
+app.use(morgan('dev'))
 app.use(express.json())
+app.use("/api/v1/admissonmethod", admissionMethodRouter);
 app.use(admissionFormRouter)
-app.use(admissionMethod)
-app.listen(port, () => {
-    console.log("Server in running on port " + port)
+
+
+app.listen(port, ()=>{
+    console.log(`App listening on port http://localhost:${port}`)
 })
