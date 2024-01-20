@@ -1,5 +1,5 @@
 const express = require('express')
-const AdmissionForm = require('../model/admissionForm')
+const AdmissionForm = require('../models/admissionForm')
 
 const router = new express.Router()
 
