@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const certificateTypeSchema = mongoose.Schema(
+const certificateTypeSchema = new mongoose.Schema(
   { 
     certificateId: {
       type: String,

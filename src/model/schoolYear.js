@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const schoolYearSchema = mongoose.Schema(
+const schoolYearSchema = new mongoose.Schema(
   { 
     startDate: {
       type: String,

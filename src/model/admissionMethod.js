@@ -1,25 +1,28 @@
 const mongoose = require('mongoose')
 
-const admissionPlanSchema = mongoose.Schema(
+const admissionMethodSchema = new mongoose.Schema(
   { 
-    universityName: {
+    name: {
       type: String,
       require: true
     },
-    schoolYear: {
+    AdmissionScore: {
       type: Number,
       require: true
     },
-    planDescription: {
-      type: String,
+    NumberOfStudent: {
+      type: Number,
       require: true
     },
     majorInPlan: [{ type: mongoose.Schema.Types.ObjectId, ref: "MajorInPlan" }],
+  
   },
   {
     timestamps: true
-  }
+  },
+  
+
 )
 
-const AdmissionPlan = mongoose.model('AdmissionPlan', admissionPlanSchema);
-module.exports = AdmissionPlan
+const AdmissionMethod = mongoose.model('AdmissionMethod', admissionMethodSchema);
+module.exports = AdmissionMethod

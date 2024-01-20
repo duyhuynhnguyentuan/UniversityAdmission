@@ -1,16 +1,12 @@
 const mongoose = require('mongoose')
 
-const majorInPlanSchema = mongoose.Schema(
+const majorInPlanSchema = new mongoose.Schema(
   { 
     majorName: {
       type: String,
       require: true
     },
     schoolYear: {
-      type: String,
-      require: true
-    },
-    subjectGroup: {
       type: String,
       require: true
     },

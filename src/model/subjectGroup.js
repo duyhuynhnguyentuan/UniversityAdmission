@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const subjectGroupSchema = mongoose.Schema(
+const subjectGroupSchema = new mongoose.Schema(
   { 
     name: {
       type: String,

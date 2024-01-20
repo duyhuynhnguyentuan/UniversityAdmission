@@ -1,32 +1,37 @@
 const mongoose = require('mongoose')
 
-const certificateSchema = mongoose.Schema(
+const formalMajorSchema = new mongoose.Schema(
   { 
     name: {
       type: String,
       require: true
     },
-    type: {
+    code: {
       type: String,
       require: true
     },
-    linkCertificate: {
+    category: {
       type: Number,
       require: true
     },
-    startDate: {
+    description: {
       type: String,
       require: true
     },
-    expiredDate: {
+    status: {
       type: String,
       require: true
     },
+    createdDate: {
+      type: String,
+      require: true
+    },
+    major: [{ type: mongoose.Schema.Types.ObjectId, ref: "Major" }],
   },
   {
     timestamps: true
   }
 )
 
- const Certificate = mongoose.model('Certificate', certificateSchema);
-module.exports = Certificate
+const FormalMajor = mongoose.model('FormalMajor', formalMajorSchema);
+module.exports = FormalMajor

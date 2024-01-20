@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const studyProfileSchema = mongoose.Schema(
+const studyProfileSchema = new mongoose.Schema(
   { 
     grade: {
       type: Number,

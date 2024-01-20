@@ -1,9 +1,7 @@
 const mongoose = require('mongoose');
 
-// Assuming 'MainSubject' is your model name
-delete mongoose.connection.models['MainSubject'];
 
-const MainSubjectSchema = mongoose.Schema(
+const MainSubjectSchema = new mongoose.Schema(
   { 
     name: {
       type: String,

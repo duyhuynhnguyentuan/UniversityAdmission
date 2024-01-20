@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const universitySchema = mongoose.Schema(
+const universitySchema = new mongoose.Schema(
   { 
     name: {
       type: String,

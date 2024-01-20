@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const provinceSchema = mongoose.Schema(
+const provinceSchema = new mongoose.Schema(
   { 
     name: {
       type: String,
