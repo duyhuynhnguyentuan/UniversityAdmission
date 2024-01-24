@@ -2,8 +2,8 @@ import { pool } from "../index.js"
 
 export const getAllMajors = async() => {
   try {
-    const data = await pool.query("SELECT * FROM major");
-    return data[0];  // lay array của tat ca major
+    const [data] = await pool.query("SELECT * FROM major");
+    return data;  // lay array của tat ca major
   } catch (error) {
     throw new Error(error);
   }
