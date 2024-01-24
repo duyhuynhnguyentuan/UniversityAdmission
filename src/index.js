@@ -2,7 +2,7 @@ import mysql from "mysql2";
 import dotenv from "dotenv";
 import express from "express";
 import morgan from "morgan"
-import  majorRoutes  from "./routers/Major.js"
+import majorRoutes  from "./routers/Major.js"
 const app = express();
 const port = 8000;
 
