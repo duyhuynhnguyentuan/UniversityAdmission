@@ -1,15 +1,13 @@
-import dotenv from "dotenv";
-import express from "express";
-import morgan from "morgan"
-// import majorRoutes  from "./routers/Major.js"
+const express = require('express');
+const morgan = require('morgan');
+const dotenv = require('dotenv').config();
 const app = express();
 const port = 8000;
+const dbConnect = require('./config/database');
 
-dotenv.config();
-
+dbConnect();
 app.use(morgan('dev'))
 app.use(express.json())
-// app.use("/", majorRoutes)
 
 app.listen(port, ()=>{
     console.log(`App listening on port http://localhost:${port}`)
