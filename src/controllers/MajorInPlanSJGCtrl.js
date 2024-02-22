@@ -12,7 +12,7 @@ const createMJP = asyncHandler(async (req, res) => {
   }
 });
 
-//get a category
+
 const getaMJP = asyncHandler(async (req, res) => {
   const { id } = req.params;
   validateMongoDbId(id);
@@ -24,10 +24,23 @@ const getaMJP = asyncHandler(async (req, res) => {
   }
 });
 
+const getAllMJP = asyncHandler(async (req, res) => {
+    try {
+      let query = {};
+      // Xử lý điều kiện tìm kiếm theo trường 'name'
+      if (req.query.name) {
+        query.name = { $regex: req.query.name, $options: "i" }; // Tìm kiếm tất cả các mục có 'name' chứa chuỗi đã cung cấp (không phân biệt chữ hoa chữ thường)
+      }
+      const getAllMJP = await majorInPlanSJG.find(query);
+      res.json(getAllMJP);
+    } catch (error) {
+      throw new Error(error);
+    }
+  });
 module.exports = {
   createMJP,
   getaMJP,
-  getAllSubject,
+  getAllMJP,
   updatedSubject,
   deletedCSubject,
 };
