@@ -1,7 +1,6 @@
 const Subject = require("..//models/subjects");
 const asyncHandler = require("express-async-handler");
-const validateMongoDbId = require("../utils/validateMongoDbId")
-
+const validateMongoDbId = require("../utils/validateMongoDbId");
 //create a new category
 const createSubject = asyncHandler(async (req, res) => {
   try {
@@ -27,8 +26,21 @@ const getaSubject = asyncHandler(async (req, res) => {
 // get all category
 const getAllSubject = asyncHandler(async (req, res) => {
   try {
-    const getallSubject = await Subject.find();
-    res.json(getallSubject);
+    let query = {};
+    // Xử lý điều kiện điểm lớn hơn hoặc bằng một mức cụ thể
+    if (req.query.minScore) {
+      query.score = { $gte: req.query.minScore };
+    }
+    // Xử lý điều kiện điểm nhỏ hơn hoặc bằng một mức cụ thể
+    if (req.query.maxScore) {
+      query.score = { ...query.score, $lte: req.query.maxScore };
+    }
+    // Xử lý điều kiện điểm nằm trong một khoảng cụ thể
+    if (req.query.minScore && req.query.maxScore) {
+      query.score = { $gte: req.query.minScore, $lte: req.query.maxScore };
+    }
+    const getAllSubject = await Subject.find(query);
+    res.json(getAllSubject);
   } catch (error) {
     throw new Error(error);
   }
