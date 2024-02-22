@@ -50,10 +50,21 @@ const updatedSMJP = asyncHandler(async (req, res) => {
   }
 });
 
+const deletedMJP = asyncHandler(async (req, res) => {
+    const { id } = req.params;
+    validateMongoDbId(id);
+    try {
+      const deletedMJP = await majorInPlanSJG.findByIdAndDelete(id);
+      res.json(deletedMJP);
+    } catch (error) {
+      throw new Error(error);
+    }
+  });
+
 module.exports = {
   createMJP,
   getaMJP,
   getAllMJP,
   updatedSMJP,
-  deletedCSubject,
+  deletedMJP,
 };
