@@ -13,7 +13,7 @@ const studyprofile = require('./routers/studyProfile');
 const studyprofileSJ = require('./routers/StudyProfileSJ');
 const mJP = require('./routers/MajorInPlanSJG');
 const subject = require('./routers/Subject');
-
+const subjectG = require('./routers/Subject');
 
 
 dbConnect();
@@ -25,8 +25,7 @@ app.use("/api/v1/studyprofile", studyprofile);
 app.use("/api/v1/studyprofileSJ", studyprofileSJ);
 app.use("/api/v1/mJP", mJP);
 app.use("/api/v1/subject", subject);
-
-
+app.use("/api/v1/subjectg", subjectG);
 
 
 app.use("/api/v1/highSchool", highSchoolRouter)
