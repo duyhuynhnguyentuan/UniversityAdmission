@@ -12,6 +12,17 @@ const newStudyProfile = asyncHandler(async (req, res, next) => {
   }
 });
 
+const getaStudyProfile = asyncHandler(async (req, res) => {
+    const { id } = req.params;
+    validateMongoDbId(id);
+    try {
+      const getaStudyProfile = await Category.findById(id);
+      res.json(getaStudyProfile);
+    } catch (error) {
+      throw new Error(error);
+    }
+  });
 module.exports = {
   newStudyProfile,
+  getaStudyProfile
 };
