@@ -43,7 +43,7 @@ const isStaff = asyncHandler(async (req, res, next) => {
   const { email } = req.user;
   const isStaff = await User.findOne({email})
   if (isStaff.role !== 'staff') {
-    throw new Error("You are not an Staff")
+    throw new Error("You are not a Staff")
   } else{
     next();
   }
