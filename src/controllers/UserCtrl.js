@@ -87,6 +87,37 @@ const createUser = asyncHandler(async (req, res) => {
       throw new Error("Invalid Credentials");
     }
   });
+
+  const loginStaff = asyncHandler(async (req, res) => {
+    const { email, password } = req.body;
+    // check if user exists or not
+    const findStaff = await User.findOne({ email });
+    if (findStaff.role !== "staff") throw new Error("Not Authorised");
+    if (findStaff && (await findStaff.isPasswordMatched(password))) {
+      const refreshToken = await generateRefreshToken(findStaff?._id);
+      const updateuser = await User.findByIdAndUpdate(
+        findStaff.id,
+        {
+          refreshToken: refreshToken,
+        },
+        { new: true }
+      );
+      res.cookie("refreshToken", refreshToken, {
+        httpOnly: true,
+        maxAge: 72 * 60 * 60 * 1000,
+      });
+      res.json({
+        _id: findStaff?._id,
+        firstname: findStaff?.firstname,
+        lastname: findStaff?.lastname,
+        email: findStaff?.email,
+        mobile: findStaff?.mobile,
+        token: generateToken(findStaff?._id),
+      });
+    } else {
+      throw new Error("Invalid Credentials");
+    }
+  });
   
   //handle RefreshToken
   
@@ -140,6 +171,7 @@ const createUser = asyncHandler(async (req, res) => {
     createUser,
     loginUserCtrl,
     loginAdmin,
+    loginStaff,
     handleRefreshToken,
     logout
   }
