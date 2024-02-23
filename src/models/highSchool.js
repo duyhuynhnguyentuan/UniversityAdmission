@@ -26,5 +26,5 @@ const highSchoolSchema = new mongoose.Schema(
   }
 )
 
-const HighSchool = mongoose.model('MainSubject', highSchoolSchema);
+const HighSchool = mongoose.model('HighSchool', highSchoolSchema);
 module.exports = HighSchool
