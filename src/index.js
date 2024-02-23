@@ -6,6 +6,10 @@ const app = express();
 const port = 8000;
 const { notFound, errorHandler } = require("./middlewares/errorHandler");
 const dbConnect = require('./config/database');
+const highSchoolRouter = require('./routers/highSchool')
+const mainSubjectRouter = require('./routers/mainSubject')
+const certificateRouter = require("./routers/certificate")
+const certificateTypeRouter = require("./routers/certificateType")
 const authRouter = require('./routers/authRoute');
 const studyprofile = require('./routers/studyProfile');
 const studyPSJ = require('./routers/StudyProfileSJ');
@@ -28,6 +32,10 @@ app.use("/api/v1/subjectg", subjectG);
 
 app.use(notFound);
 app.use(errorHandler);
+app.use("/api/v1/highSchool", highSchoolRouter)
+app.use("/api/v1/mainSubject", mainSubjectRouter)
+app.use("/api/v1/certificate", certificateRouter)
+app.use("/api/v1/certificateType", certificateTypeRouter)
 app.listen(port, ()=>{
     console.log(`App listening on port http://localhost:${port}`)
 })
