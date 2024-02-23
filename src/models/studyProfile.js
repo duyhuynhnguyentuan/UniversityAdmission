@@ -6,11 +6,14 @@ const studyProfileSchema = new mongoose.Schema(
       type: Number,
       require: true
     },
-    subjects: [{ type: mongoose.Schema.Types.ObjectId, ref: "Subjects" }], 
+    profile : [{ type: mongoose.Schema.Types.ObjectId, ref: "Profile" }],
+    highschool: [{ type: mongoose.Schema.Types.ObjectId, ref: "HighSchool" }],
+    schoolyear: [{ type: mongoose.Schema.Types.ObjectId, ref: "Schoolyear" }]
+
   },
   {
     timestamps: true
   }
 )
-const StudyProfile = mongoose.model('StudyProfile', studyProfileSchema);
-module.exports = StudyProfile
+
+module.exports = mongoose.model('StudyProfile', studyProfileSchema);
