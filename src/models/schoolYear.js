@@ -22,5 +22,5 @@ const schoolYearSchema = new mongoose.Schema(
   }
 )
 
-const SchoolYear = mongoose.model('Province', schoolYearSchema);
+const SchoolYear = mongoose.model('SchoolYear', schoolYearSchema);
 module.exports = SchoolYear
