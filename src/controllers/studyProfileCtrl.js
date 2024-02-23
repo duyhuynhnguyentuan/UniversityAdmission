@@ -5,7 +5,7 @@ const validateMongoDbId = require("../utils/validateMongoDbId");
 // create a new StudyProfile
 const newStudyProfile = asyncHandler(async (req, res, next) => {
   try {
-    const newStudyProfile = await Subject.create(req.body);
+    const newStudyProfile = await StudyProfile.create(req.body);
     res.json(newStudyProfile);
   } catch (error) {
     throw new Error(error);
@@ -16,7 +16,7 @@ const getaStudyProfile = asyncHandler(async (req, res) => {
   const { id } = req.params;
   validateMongoDbId(id);
   try {
-    const getaStudyProfile = await Category.findById(id);
+    const getaStudyProfile = await StudyProfile.findById(id);
     res.json(getaStudyProfile);
   } catch (error) {
     throw new Error(error);
@@ -35,7 +35,7 @@ const getAllStudyProfile = asyncHandler(async (req, res) => {
     if (req.query.grade_gt) {
       query.grade = { $gt: req.query.grade_lt };
     }
-    const getAllStudyProfile = await Category.find(query);
+    const getAllStudyProfile = await StudyProfile.find(query);
     res.json(getAllStudyProfile);
   } catch (error) {
     throw new Error(error);
@@ -46,10 +46,21 @@ const updatedStudyProfile = asyncHandler(async (req, res) => {
     const { id } = req.params;
     validateMongoDbId(id);
     try {
-      const updatedStudyProfile = await Category.findByIdAndUpdate(id, req.body, {
+      const updatedStudyProfile = await StudyProfile.findByIdAndUpdate(id, req.body, {
         new: true,
       });
       res.json(updatedStudyProfile);
+    } catch (error) {
+      throw new Error(error);
+    }
+  });
+
+  const deletedStudyProfile = asyncHandler(async (req, res) => {
+    const { id } = req.params;
+    validateMongoDbId(id);
+    try {
+      const deletedStudyProfile = await StudyProfile.findByIdAndDelete(id);
+      res.json(deletedStudyProfile);
     } catch (error) {
       throw new Error(error);
     }
@@ -59,5 +70,6 @@ module.exports = {
   newStudyProfile,
   getaStudyProfile,
   getAllStudyProfile,
-  updatedStudyProfile
+  updatedStudyProfile,
+  deletedStudyProfile
 };
