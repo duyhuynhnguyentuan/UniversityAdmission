@@ -1,7 +1,7 @@
 const SubjectG = require("..//models/subjectGroup");
 const asyncHandler = require("express-async-handler");
 const validateMongoDbId = require("../utils/validateMongoDbId");
-//create a new category
+
 const createSubjectG = asyncHandler(async (req, res) => {
   try {
     const newSubjectG = await SubjectG.create(req.body);
@@ -11,7 +11,6 @@ const createSubjectG = asyncHandler(async (req, res) => {
   }
 });
 
-//get a category
 const getaSubjectG = asyncHandler(async (req, res) => {
   const { id } = req.params;
   validateMongoDbId(id);
@@ -23,7 +22,6 @@ const getaSubjectG = asyncHandler(async (req, res) => {
   }
 });
 
-// get all category
 const getAllSubjectG = asyncHandler(async (req, res) => {
   try {
     let query = {};
@@ -39,7 +37,7 @@ const getAllSubjectG = asyncHandler(async (req, res) => {
   }
 });
 
-//update a category
+
 const updatedSubjectG = asyncHandler(async (req, res) => {
   const { id } = req.params;
   validateMongoDbId(id);
@@ -53,7 +51,6 @@ const updatedSubjectG = asyncHandler(async (req, res) => {
   }
 });
 
-// delete a category
 const deletedCSubjectG = asyncHandler(async (req, res) => {
   const { id } = req.params;
   validateMongoDbId(id);

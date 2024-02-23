@@ -2,7 +2,6 @@ const majorInPlanSJG = require("..//models/majorInPlanSJG");
 const asyncHandler = require("express-async-handler");
 const validateMongoDbId = require("../utils/validateMongoDbId");
 
-//create a new category
 const createMJP = asyncHandler(async (req, res) => {
   try {
     const newMJP = await majorInPlanSJG.create(req.body);
