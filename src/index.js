@@ -11,10 +11,10 @@ const mainSubjectRouter = require('./routers/mainSubject')
 const certificateRouter = require("./routers/certificate")
 const certificateTypeRouter = require("./routers/certificateType")
 const studyprofile = require('./routers/studyProfile');
-const studyprofileSJ = require('./routers/StudyProfileSJ');
+const studyPSJ = require('./routers/StudyProfileSJ');
 const mJP = require('./routers/MajorInPlanSJG');
 const subject = require('./routers/Subject');
-const subjectG = require('./routers/Subject');
+const subjectG = require('./routers/SubjectG');
 
 
 dbConnect();
@@ -23,8 +23,8 @@ app.use(express.json())
 app.use(bodyParser.json());
 
 app.use("/api/v1/studyprofile", studyprofile);
-app.use("/api/v1/studyprofileSJ", studyprofileSJ);
-app.use("/api/v1/mJP", mJP);
+app.use("/api/v1/stdpsj", studyPSJ);
+app.use("/api/v1/mjp", mJP);
 app.use("/api/v1/subject", subject);
 app.use("/api/v1/subjectg", subjectG);
 
