@@ -42,8 +42,22 @@ const getAllStudyProfile = asyncHandler(async (req, res) => {
   }
 });
 
+const updatedStudyProfile = asyncHandler(async (req, res) => {
+    const { id } = req.params;
+    validateMongoDbId(id);
+    try {
+      const updatedStudyProfile = await Category.findByIdAndUpdate(id, req.body, {
+        new: true,
+      });
+      res.json(updatedStudyProfile);
+    } catch (error) {
+      throw new Error(error);
+    }
+  });
+
 module.exports = {
   newStudyProfile,
   getaStudyProfile,
   getAllStudyProfile,
+  updatedStudyProfile
 };
