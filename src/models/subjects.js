@@ -14,8 +14,6 @@ const subjectSchema = new mongoose.Schema(
       type: String,
       require: true
     },
-    subjectGroup: [{ type: mongoose.Schema.Types.ObjectId, ref: "SubjectGroup" }],
-    mainSubject: [{ type: mongoose.Schema.Types.ObjectId, ref: "MainSubject" }],
   },
   {
     timestamps: true
