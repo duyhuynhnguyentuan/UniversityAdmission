@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const dotenv = require('dotenv').config();
 const app = express();
 const port = 8000;
+const { notFound, errorHandler } = require("./middlewares/errorHandler");
 const dbConnect = require('./config/database');
 const studyprofile = require('./routers/studyProfile');
 const studyprofileSJ = require('./routers/StudyProfileSJ');
@@ -23,7 +24,8 @@ app.use("/api/v1/mJP", mJP);
 app.use("/api/v1/subject", subject);
 app.use("/api/v1/subjectg", subjectG);
 
-
+app.use(notFound);
+app.use(errorHandler);
 app.listen(port, ()=>{
     console.log(`App listening on port http://localhost:${port}`)
 })
