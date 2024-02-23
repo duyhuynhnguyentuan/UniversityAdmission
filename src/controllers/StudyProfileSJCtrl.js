@@ -11,6 +11,18 @@ const createStudyProfileSJ = asyncHandler(async (req, res) => {
     }
   });
 
+  const getaStudyProfileSJ = asyncHandler(async (req, res) => {
+    const { id } = req.params;
+    validateMongoDbId(id);
+    try {
+      const getaStudyProfileSJ = await StudyProfileSJ.findById(id);
+      res.json(getaStudyProfileSJ);
+    } catch (error) {
+      throw new Error(error);
+    }
+  });
+
 module.exports = {
-    createStudyProfileSJ
+    createStudyProfileSJ,
+    getaStudyProfileSJ
 };
