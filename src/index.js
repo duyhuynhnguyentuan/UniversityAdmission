@@ -10,6 +10,7 @@ const highSchoolRouter = require('./routers/highSchool')
 const mainSubjectRouter = require('./routers/mainSubject')
 const certificateRouter = require("./routers/certificate")
 const certificateTypeRouter = require("./routers/certificateType")
+const authRouter = require('./routers/authRoute');
 const studyprofile = require('./routers/studyProfile');
 const studyPSJ = require('./routers/StudyProfileSJ');
 const mJP = require('./routers/MajorInPlanSJG');
@@ -22,6 +23,7 @@ app.use(morgan('dev'))
 app.use(express.json())
 app.use(bodyParser.json());
 
+app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/studyprofile", studyprofile);
 app.use("/api/v1/stdpsj", studyPSJ);
 app.use("/api/v1/mjp", mJP);
