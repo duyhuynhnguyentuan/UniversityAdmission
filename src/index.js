@@ -1,5 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
+const bodyParser = require("body-parser");
 const dotenv = require('dotenv').config();
 const app = express();
 const port = 8000;
@@ -8,9 +9,15 @@ const highSchoolRouter = require('./routers/highSchool')
 const mainSubjectRouter = require('./routers/mainSubject')
 const certificateRouter = require("./routers/certificate")
 const certificateTypeRouter = require("./routers/certificateType")
+const studyprofile = require('./routers/studyProfile');
+
 dbConnect();
 app.use(morgan('dev'))
 app.use(express.json())
+app.use(bodyParser.json());
+
+app.use("/api/v1/studyprofile", studyprofile);
+
 
 app.use("/api/v1/highSchool", highSchoolRouter)
 app.use("/api/v1/mainSubject", mainSubjectRouter)
