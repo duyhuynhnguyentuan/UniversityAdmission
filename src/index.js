@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const dotenv = require('dotenv').config();
 const app = express();
 const port = 8000;
+const { notFound, errorHandler } = require("./middlewares/errorHandler");
 const dbConnect = require('./config/database');
 const highSchoolRouter = require('./routers/highSchool')
 const mainSubjectRouter = require('./routers/mainSubject')
@@ -27,6 +28,8 @@ app.use("/api/v1/mJP", mJP);
 app.use("/api/v1/subject", subject);
 app.use("/api/v1/subjectg", subjectG);
 
+app.use(notFound);
+app.use(errorHandler);
 
 app.use("/api/v1/highSchool", highSchoolRouter)
 app.use("/api/v1/mainSubject", mainSubjectRouter)
