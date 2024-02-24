@@ -61,8 +61,8 @@ app.use("/api/v1/certificate", certificateRouter)
 app.use("/api/v1/certificateType", certificateTypeRouter)
 
 
-app.use(notFound);
-app.use(errorHandler);
+// app.use(notFound);
+// app.use(errorHandler);
 app.listen(port, () => {
     console.log(`App listening on port http://localhost:${port}`)
 })
