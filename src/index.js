@@ -12,6 +12,11 @@ const studyPSJ = require('./routers/StudyProfileSJ');
 const mJP = require('./routers/MajorInPlanSJG');
 const subject = require('./routers/Subject');
 const subjectG = require('./routers/SubjectG');
+const admissionForm = require('./routers/admissionForm');
+const admissionMethod = require('./routers/admissionMethod');
+const majorInPlan = require('./routers/majorInPlan');
+const major = require('./routers/Major');
+const formalMajor = require('./routers/formalMajor');
 
 
 dbConnect();
@@ -25,9 +30,14 @@ app.use("/api/v1/stdpsj", studyPSJ);
 app.use("/api/v1/mjp", mJP);
 app.use("/api/v1/subject", subject);
 app.use("/api/v1/subjectg", subjectG);
+app.use("/api/v1/admissionForm", admissionForm);
+app.use("/api/v1/admissionMethod", admissionMethod);
+app.use("/api/v1/majorInPlan", majorInPlan);
+app.use("/api/v1/major", major);
+app.use("/api/v1/formalMajor", formalMajor);
 
 app.use(notFound);
 app.use(errorHandler);
-app.listen(port, ()=>{
+app.listen(port, () => {
     console.log(`App listening on port http://localhost:${port}`)
 })
