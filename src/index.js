@@ -56,10 +56,9 @@ app.use("/api/v1/highSchool", highSchoolRouter)
 app.use("/api/v1/mainSubject", mainSubjectRouter)
 app.use("/api/v1/certificate", certificateRouter)
 app.use("/api/v1/certificateType", certificateTypeRouter)
-
-
 app.use(notFound);
 app.use(errorHandler);
-app.listen(port, () => {
+
+app.listen(port, ()=>{
     console.log(`App listening on port http://localhost:${port}`)
 })
