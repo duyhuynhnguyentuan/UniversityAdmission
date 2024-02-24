@@ -64,8 +64,8 @@ app.get("/", (request, response) => {
 
 
 
-app.use(notFound);
-app.use(errorHandler);
+// app.use(notFound);
+// app.use(errorHandler);
 app.listen(port, () => {
     console.log(`App listening on port http://localhost:${port}`)
 })
