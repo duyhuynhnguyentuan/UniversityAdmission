@@ -55,6 +55,14 @@ app.use("/api/v1/mainSubject", mainSubjectRouter)
 app.use("/api/v1/certificate", certificateRouter)
 app.use("/api/v1/certificateType", certificateTypeRouter)
 
+app.get("/", (request, response) => {
+    return response.status(234).send("UniversityAdmission");
+  });
+
+// app.use(notFound);
+// app.use(errorHandler);
+
+
 
 app.use(notFound);
 app.use(errorHandler);
