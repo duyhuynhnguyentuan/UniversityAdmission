@@ -22,7 +22,7 @@ const majorSchema = new mongoose.Schema(
       type: String,
       require: true
     },
-    createdDate: {
+    effectiveDate: {
       type: String,
       require: true
     },
