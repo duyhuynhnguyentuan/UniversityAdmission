@@ -2,18 +2,15 @@ const mongoose = require('mongoose')
 
 const admissionPlanSchema = new mongoose.Schema(
   { 
-    universityName: {
-      type: String,
-      require: true
-    },
-    schoolYear: {
-      type: Number,
-      require: true
-    },
+    schoolYear: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "SchoolYear"
+    }],
     planDescription: {
       type: String,
       require: true
     },
+    university: [{ type: mongoose.Schema.Types.ObjectId, ref: "University" }],
     majorInPlan: [{ type: mongoose.Schema.Types.ObjectId, ref: "MajorInPlan" }],
   },
   {
