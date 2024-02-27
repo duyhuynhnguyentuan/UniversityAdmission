@@ -11,7 +11,7 @@ const schoolYearSchema = new mongoose.Schema(
       require: true
     },
     year: {
-      type: String,
+      type: Number,
       require: true
     },
     admissionPlan: [{ type: mongoose.Schema.Types.ObjectId, ref: "AdmissionPlan" }],

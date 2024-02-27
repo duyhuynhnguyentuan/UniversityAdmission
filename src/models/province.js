@@ -6,6 +6,10 @@ const provinceSchema = new mongoose.Schema(
       type: String,
       require: true
     },
+    areaCode: {
+      type: String,
+      require: true
+    },
     university: [{ type: mongoose.Schema.Types.ObjectId, ref: "University" }],
   },
   {
