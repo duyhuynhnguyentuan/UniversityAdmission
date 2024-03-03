@@ -1,4 +1,4 @@
-# Project môn học SWD392 - Hệ thống bán các sản phẩm nội thất
+# Project môn học SWD392 - Hệ thống về các thông tin đại học
 
 ### Members
 
