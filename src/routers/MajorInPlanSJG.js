@@ -81,11 +81,9 @@ router.post("/", createMJP);
  *         description: The MajorInPlanSJG was not found
  */
 router.get("/:id", getaMJP);
-
-
 /**
  * @swagger
- * /api/v1/mjp:
+ * /api/v1/mjp
  *   get:
  *     summary: Returns the list of all the MajorInPlanSJG
  *     tags: [MajorInPlanSJG]

@@ -48,7 +48,7 @@ const router = express.Router();
  * /api/v1/studyprofile:
  *   post:
  *     summary: Create a new studyprofile
- *     tags: [StudyProfile]
+ *     tags: [Studyprofile]
  *     requestBody:
  *       required: true
  *       content:
@@ -71,7 +71,7 @@ router.post("/", newStudyProfile);
  * /api/v1/studyprofile/{id}:
  *   get:
  *     summary: Get the studyprofile by id
- *     tags: [StudyProfile]
+ *     tags: [studyprofile]
  *     parameters:
  *       - in: path
  *         name: id
@@ -92,7 +92,7 @@ router.post("/", newStudyProfile);
 router.get("/:id", getaStudyProfile);
 /**
  * @swagger
- * /api/v1/StudyProfile:
+ * /api/v1/studyprofile:
  *   get:
  *     summary: Returns the list of all the StudyProfile
  *     tags: [StudyProfile]
@@ -139,6 +139,38 @@ router.get("/", getAllStudyProfile);
  *      500:
  *        description: Some error happened
  */
+
+/**
+ * @swagger
+ * /api/v1/studyprofile/{id}:
+ *  put:
+ *    summary: Update the book by the id
+ *    tags: [StudyProfile]
+ *    parameters:
+ *      - in: path
+ *        name: id
+ *        schema:
+ *          type: string
+ *        required: true
+ *        description: The StudyProfile id
+ *    requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            $ref: '#/components/schemas/StudyProfile'
+ *    responses:
+ *      200:
+ *        description: The StudyProfile was updated
+ *        content:
+ *          application/json:
+ *            schema:
+ *              $ref: '#/components/schemas/StudyProfile'
+ *      404:
+ *        description: The StudyProfile was not found
+ *      500:
+ *        description: Some error happened
+ */
 router.put("/:id", updatedStudyProfile);
 
 /**
@@ -146,7 +178,7 @@ router.put("/:id", updatedStudyProfile);
  * /api/v1/studyprofile/{id}:
  *   delete:
  *     summary: Remove the studyprofile by id
- *     tags: [StudyProfile]
+ *     tags: [Studyprofile]
  *     parameters:
  *       - in: path
  *         name: id

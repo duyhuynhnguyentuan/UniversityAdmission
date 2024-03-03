@@ -12,7 +12,7 @@ const router = express.Router();
  * @swagger
  * components:
  *   schemas:
- *     Subject:
+ *     Subjects:
  *       type: object
  *       required:
  *         - name
@@ -27,14 +27,14 @@ const router = express.Router();
  *           description: The book grade
  *         description:
  *           type: string
- *           description: The Subject profile
+ *           description: The Subjects profile
  *         
 
  */
  /**
   * @swagger
   * tags:
-  *   name: Subject
+  *   name: Subjects
   *   description: The Subjects managing API
   */
 /**
@@ -42,7 +42,7 @@ const router = express.Router();
  * /api/v1/subject:
  *   post:
  *     summary: Create a new Subjects
- *     tags: [Subject]
+ *     tags: [Subjects]
  *     requestBody:
  *       required: true
  *       content:
@@ -65,56 +65,56 @@ router.post("/", createSubject);
  * @swagger
  * /api/v1/subject/{id}:
  *   get:
- *     summary: Get the Subject by id
- *     tags: [Subject]
+ *     summary: Get the SubjectsSubject by id
+ *     tags: [SubjectsSubject]
  *     parameters:
  *       - in: path
  *         name: id
  *         schema:
  *           type: string
  *         required: true
- *         description: The Subject id
+ *         description: The SubjectsSubject id
  *     responses:
  *       200:
- *         description: The Subject description by id
+ *         description: The SubjectsSubject description by id
  *         contens:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Subjects'
+ *               $ref: '#/components/schemas/SubjectsSubject'
  *       404:
- *         description: The Subject was not found
+ *         description: The SubjectsSubject was not found
  */
 router.get("/:id", getaSubject);
 /**
  * @swagger
  * /api/v1/subject:
  *   get:
- *     summary: Returns the list of all the Subject
- *     tags: [Subject]
+ *     summary: Returns the list of all the SubjectsSubject
+ *     tags: [SubjectsSubject]
  *     responses:
  *       200:
- *         description: The list of the Subject
+ *         description: The list of the SubjectsSubject
  *         content:
  *           application/json:
  *             schema:
  *               type: array
  *               items:
- *                 $ref: '#/components/schemas/Subjects'
+ *                 $ref: '#/components/schemas/SubjectsSubject'
  */
 router.get("/", getAllSubject);
 /**
  * @swagger
  * /api/v1/subject/{id}:
  *  put:
- *    summary: Update the Subject by the id
- *    tags: [Subject]
+ *    summary: Update the Subjects by the id
+ *    tags: [Subjects]
  *    parameters:
  *      - in: path
  *        name: id
  *        schema:
  *          type: string
  *        required: true
- *        description: The Subject id
+ *        description: The Subjects id
  *    requestBody:
  *      required: true
  *      content:
@@ -139,20 +139,20 @@ router.put("/:id", updatedSubject);
  * /api/v1/subject/{id}:
  *   delete:
  *     summary: Remove the Subjects by id
- *     tags: [Subject]
+ *     tags: [Subjects]
  *     parameters:
  *       - in: path
  *         name: id
  *         schema:
  *           type: string
  *         required: true
- *         description: The Subject id
+ *         description: The Subjects id
  * 
  *     responses:
  *       200:
- *         description: The Subject was deleted
+ *         description: The Subjects was deleted
  *       404:
- *         description: The Subject was not found
+ *         description: The Subjects was not found
  */
 router.delete("/:id",deletedCSubject);
 
