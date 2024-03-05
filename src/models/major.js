@@ -8,8 +8,10 @@ const mongoose = require('mongoose')
  *       required:
  *         - name
  *         - code 
+ *         - category
+ *         - description
+ *         - status
  *         - effectiveDate
- *         - note
  *       properties:
  *         name:
  *           type: string
@@ -17,12 +19,18 @@ const mongoose = require('mongoose')
  *         code:
  *           type: string
  *           default: "CNTT"
- *         effectiveDate:
- *           type: string
- *           default: "N/A"
- *         note:
+ *         category:
+ *           type: number
+ *           default: 1
+ *         description:
  *           type: string
  *           default: "nganh cong nghe thong tin"
+ *         status:
+ *           type: string
+ *           default: "active"
+ *         effectiveDate:
+ *           type: string
+ *           default: "17/12/2009"
  *     MajorResponse:
  *       type: object
  *       properties:
@@ -32,9 +40,13 @@ const mongoose = require('mongoose')
  *           type: string
  *         code:
  *           type: string
- *         effectiveDate:
+ *         category:
+ *           type: number
+ *         description:
  *           type: string
- *         note:
+ *         status:
+ *           type: string
+ *         effectiveDate:
  *           type: string
  */
 
