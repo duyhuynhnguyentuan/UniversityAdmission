@@ -53,7 +53,7 @@ const getaUniversity = asyncHandler(async (res, req) => {
 //   });
 const getAllUniversities = asyncHandler(async (req, res) => {
     try {
-        const getAllUniversities = await University.find();
+        const getAllUniversities = await University.find().populate('province major admissionPlan');
         res.json(getAllUniversities);
     } catch (error) {
         throw new Error(error);
