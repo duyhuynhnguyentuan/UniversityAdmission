@@ -3,6 +3,7 @@ const morgan = require('morgan');
 const bodyParser = require("body-parser");
 const dotenv = require('dotenv').config();
 const app = express();
+const cors = require('cors');
 const port = 8000;
 const { notFound, errorHandler } = require("./middlewares/errorHandler");
 const dbConnect = require('./config/database');
@@ -58,6 +59,15 @@ const specs = swaggerJsDoc(options);
 
 
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(specs));
+
+// Enable CORS with specific options
+app.use(cors({
+	origin: '*',
+	methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+	credentials: true,
+	optionsSuccessStatus: 204, 
+  }));
+  
 dbConnect();
 app.use(morgan('dev'));
 app.use(express.json());
