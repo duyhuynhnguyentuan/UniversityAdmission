@@ -11,6 +11,7 @@ const {
   uploadXLSX,
 } = require("../controllers/StudyProfileSJCtrl");
 const router = express.Router();
+const upload = require("../utils/upload");
 /**
  * @swagger
  * components:
@@ -23,10 +24,10 @@ const router = express.Router();
  *       properties:
  *         studyProfile:
  *           type: object
- *           description: The auto-generated id of the book
+ *           description: The auto-generated id of the StudyProfileSubject
  *         subjects:
  *           type: object
- *           description: The book grade
+ *           description: The StudyProfileSubject grade
 
  */
  /**
@@ -38,11 +39,10 @@ const router = express.Router();
 
 
 
-const upload = require("../utils/upload");
 
 /**
  * @swagger
- * /api/v1/stdpsj
+ * /api/v1/stdpsj:
  *   post:
  *     summary: Create a new StudyProfileSubject
  *     tags: [StudyProfileSubject]
@@ -153,7 +153,7 @@ router.get("/", getAllStudyProfileSJ);
  * @swagger
  * /api/v1/stdpsj/upload:
  *   post:
- *     summary: Create a new StudyProfileSubject
+ *     summary: Create a upload StudyProfileSubject
  *     tags: [StudyProfileSubject]
  *     requestBody:
  *       required: true
@@ -171,6 +171,7 @@ router.get("/", getAllStudyProfileSJ);
  *       500:
  *         description: Some server error
  */
+
 
 router.post("/upload", upload.single("xlsx"), uploadXLSX);
 
