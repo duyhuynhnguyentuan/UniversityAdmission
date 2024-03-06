@@ -108,8 +108,6 @@ const createUser = asyncHandler(async (req, res) => {
   module.exports = {
     createUser,
     loginUserCtrl,
-    loginAdmin,
-    loginStaff,
     handleRefreshToken,
     logout
   }
