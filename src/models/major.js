@@ -60,19 +60,11 @@ const majorSchema = new mongoose.Schema(
       type: String,
       require: true
     },
-    category: {
-      type: Number,
-      require: true
-    },
-    description: {
-      type: String,
-      require: true
-    },
-    status: {
-      type: String,
-      require: true
-    },
     effectiveDate: {
+      type: String,
+      require: true
+    },
+    note: {
       type: String,
       require: true
     },
