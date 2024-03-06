@@ -15,7 +15,7 @@ const getaSubject = asyncHandler(async (req, res) => {
   const { id } = req.params;
   validateMongoDbId(id);
   try {
-    const getaSubject = await Category.findById(id);
+    const getaSubject = await Subject.findById(id);
     res.json(getaSubject);
   } catch (error) {
     throw new Error(error);
