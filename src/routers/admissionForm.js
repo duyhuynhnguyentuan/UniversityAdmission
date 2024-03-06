@@ -2,6 +2,7 @@ const express = require('express');
 const {
     createAdmissionForm,
     getAllAdmissionForms,
+    getAdmissionFormById,
     updateAdmissionForm,
     deleteAdmissionForm
 } = require('../controllers/AdmissionFormCtrl');
@@ -108,5 +109,39 @@ router.put('/:id',updateAdmissionForm);
  */
 
 router.delete('/:id',deleteAdmissionForm);
+
+
+/** 
+ * @swagger
+ * /api/v1/admissionForm/{id}:
+ *   get:
+ *     tags:
+ *       - AdmissionForm routes
+ *     summary: Delete a single AdmissionForm
+ *     description: Delete a specific AdmissionForm
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: The id of the AdmissionForm being deleted
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/AdmissionForm'
+ *     responses:
+ *       '200':
+ *         description: A AdmissionForm has been deleted successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/AdmissionFormResponse'
+ *       '403':
+ *         description: Forbidden
+ *       '404':
+ *         description: No AdmissionForm found 
+ */
+router.get('/:id', getAdmissionFormById);
 
 module.exports = router;
