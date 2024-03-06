@@ -48,7 +48,7 @@ const router = express.Router();
  * /api/v1/studyprofile:
  *   post:
  *     summary: Create a new studyprofile
- *     tags: [Studyprofile]
+ *     tags: [StudyProfile]
  *     requestBody:
  *       required: true
  *       content:
@@ -71,7 +71,7 @@ router.post("/", newStudyProfile);
  * /api/v1/studyprofile/{id}:
  *   get:
  *     summary: Get the studyprofile by id
- *     tags: [studyprofile]
+ *     tags: [StudyProfile]
  *     parameters:
  *       - in: path
  *         name: id
@@ -92,7 +92,7 @@ router.post("/", newStudyProfile);
 router.get("/:id", getaStudyProfile);
 /**
  * @swagger
- * /api/v1/studyprofile:
+ * /api/v1/StudyProfile:
  *   get:
  *     summary: Returns the list of all the StudyProfile
  *     tags: [StudyProfile]
@@ -146,7 +146,7 @@ router.put("/:id", updatedStudyProfile);
  * /api/v1/studyprofile/{id}:
  *   delete:
  *     summary: Remove the studyprofile by id
- *     tags: [Studyprofile]
+ *     tags: [StudyProfile]
  *     parameters:
  *       - in: path
  *         name: id

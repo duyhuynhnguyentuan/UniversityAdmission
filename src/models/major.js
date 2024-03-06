@@ -8,10 +8,8 @@ const mongoose = require('mongoose')
  *       required:
  *         - name
  *         - code 
- *         - category
- *         - description
- *         - status
  *         - effectiveDate
+ *         - note
  *       properties:
  *         name:
  *           type: string
@@ -19,18 +17,12 @@ const mongoose = require('mongoose')
  *         code:
  *           type: string
  *           default: "CNTT"
- *         category:
- *           type: number
- *           default: 1
- *         description:
- *           type: string
- *           default: "nganh cong nghe thong tin"
- *         status:
- *           type: string
- *           default: "active"
  *         effectiveDate:
  *           type: string
- *           default: "17/12/2009"
+ *           default: "N/A"
+ *         note:
+ *           type: string
+ *           default: "nganh cong nghe thong tin"
  *     MajorResponse:
  *       type: object
  *       properties:
@@ -40,13 +32,9 @@ const mongoose = require('mongoose')
  *           type: string
  *         code:
  *           type: string
- *         category:
- *           type: number
- *         description:
- *           type: string
- *         status:
- *           type: string
  *         effectiveDate:
+ *           type: string
+ *         note:
  *           type: string
  */
 
@@ -60,23 +48,16 @@ const majorSchema = new mongoose.Schema(
       type: String,
       require: true
     },
-    category: {
-      type: Number,
-      require: true
-    },
-    description: {
-      type: String,
-      require: true
-    },
-    status: {
-      type: String,
-      require: true
-    },
     effectiveDate: {
       type: String,
       require: true
     },
+    note: {
+      type: String,
+      require: true
+    },
     majorInPlan: [{ type: mongoose.Schema.Types.ObjectId, ref: "MajorInPlan" }],
+    admissionMethod: [{type: mongoose.Schema.Types.ObjectId, ref: "AdmissionMethod" }]
   },
   {
     timestamps: true
