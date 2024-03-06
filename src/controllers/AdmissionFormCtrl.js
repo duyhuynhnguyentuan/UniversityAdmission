@@ -31,6 +31,24 @@ exports.getAllAdmissionForms = async (req, res) => {
   }
 };
 
+// Get admission form by ID
+exports.getAdmissionFormById = async (req, res) => {
+  try {
+    console.log("Received request:", req.params);
+    const admissionFormId = req.params.id;
+
+    const admissionForm = await AdmissionForm.findById(admissionFormId);
+
+    if (!admissionForm) {
+      return res.status(404).json({ error: 'Admission Form not found' });
+    }
+
+    res.status(200).json(admissionForm);
+  } catch (error) {
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
+
 //update admission form
 exports.updateAdmissionForm = async (req, res) => {
   try {
