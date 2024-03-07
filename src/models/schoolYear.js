@@ -48,6 +48,7 @@ const mongoose = require('mongoose')
  *           description: The end date of the school year.
  *         year: 
  *           type: integer
+ *           default: 2016
  *           description: The academic year.
  *         admissionPlan: 
  *           type: array
