@@ -7,7 +7,9 @@ const {
     getAllUniversities,
     updateUniversity,
     deleteUniversity,
+    searchUniversity
 } = require('../controllers/UniversityCtrl');
+router.get("/search", searchUniversity);
 
 /**
  * @swagger
@@ -137,5 +139,7 @@ router.put("/:id", updateUniversity);
  *         description: No university found 
  */
 router.delete("/:id", deleteUniversity);
+
+
 
 module.exports = router;
