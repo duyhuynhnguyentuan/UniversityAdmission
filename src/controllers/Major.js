@@ -34,6 +34,28 @@ exports.getAllMajors = async (req, res) => {
   }
 };
 
+exports.searchMajor = async (req, res) => {
+  const  {query}  = req.query; // Assuming the search query is passed as a query parameter
+  if (!query) {
+      return res.status(400).json({ error: 'Query parameter is missing' });
+  }
+  console.log(query)
+  try {
+      const result = await Major.find({
+          $or: [
+              { name: { $regex: query.toString(), $options: 'i' } }, // Case-insensitive search for name
+              { code: { $regex: query.toString(), $options: 'i' } }, // Case-insensitive search for code
+              { effectiveDate: { $regex: query.toString(), $options: 'i' } }, // Case-insensitive search for effectiveDate
+              { note: { $regex: query.toString(), $options: 'i' } } // Case-insensitive search for note
+          ]
+      }).populate('majorInPlan'); // Populate referenced documents
+
+      return res.status(200).json(result);
+  } catch (error) {
+      console.error('Error occurred during search:', error);
+      return res.status(500).json({ error: 'Internal server error' });
+  }
+};
 // Get major by ID
 exports.getMajorById = async (req, res) => {
   try {

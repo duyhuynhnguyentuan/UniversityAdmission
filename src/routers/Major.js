@@ -4,7 +4,8 @@ const {
     getAllMajors,
     getMajorById,
     updateMajor,
-    deleteMajor
+    deleteMajor, 
+    searchMajor
 } = require("../controllers/Major")
 const router = express.Router();
 
@@ -67,6 +68,8 @@ router.get('/', getAllMajors);
  *       '404':
  *         description: Highschool not found 
  */
+
+router.get('/search', searchMajor);
 router.get('/:id', getMajorById);
 /** 
  * @swagger
