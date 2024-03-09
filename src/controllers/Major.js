@@ -61,7 +61,7 @@ exports.getMajorById = async (req, res) => {
   try {
     const majorId = req.params.id;
 
-    const major = await Major.findById(majorId).populate('majorInPlan');
+    const major = await Major.findById(majorId).populate('majorInPlan admissionMethod');
 
     if (!major) {
       return res.status(404).json({ error: 'Major not found' });

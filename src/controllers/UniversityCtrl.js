@@ -18,7 +18,7 @@ const getaUniversity = asyncHandler(async (req, res) => {
   const { id } = req.params;
   validateMongoDbId(id);
   try {
-    const getaUniversity = await University.findById(id);
+    const getaUniversity = await University.findById(id).populate('province major admissionPlan');
     if (!getaUniversity) {
       res.status(404).send({ message: "University not found" });
     }

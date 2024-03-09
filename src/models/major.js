@@ -57,6 +57,7 @@ const majorSchema = new mongoose.Schema(
       require: true
     },
     majorInPlan: [{ type: mongoose.Schema.Types.ObjectId, ref: "MajorInPlan" }],
+    admissionMethod: [{type: mongoose.Schema.Types.ObjectId, ref: "AdmissionMethod" }]
   },
   {
     timestamps: true
