@@ -15,18 +15,18 @@ const createUniversity = asyncHandler(async (req, res) => {
 
 //get a single University
 const getaUniversity = asyncHandler(async (req, res) => {
-    const {id} = req.params;
-    validateMongoDbId(id);
-    try{
-        const getaUniversity = await University.findById(id).populate('province major admissionPlan');
-        if(!getaUniversity){
-            res.status(404).send({message:'University not found'})
-        }
-        res.json(getaUniversity)
-    }catch(e) {
-        throw new Error(e);
+  const { id } = req.params;
+  validateMongoDbId(id);
+  try {
+    const getaUniversity = await University.findById(id).populate('province major admissionPlan');
+    if (!getaUniversity) {
+      res.status(404).send({ message: "University not found" });
     }
-})
+    res.json(getaUniversity);
+  } catch (e) {
+    throw new Error(e);
+  }
+});
 
 //get all universities
 // const getAllUniversities = asyncHandler(async (req, res) => {
@@ -114,6 +114,7 @@ const searchUniversity = async (req, res) => {
 };
 
 
+// search university
 
 
 module.exports = {

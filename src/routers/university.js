@@ -9,6 +9,7 @@ const {
     deleteUniversity,
     searchUniversity
 } = require('../controllers/UniversityCtrl');
+
 /**
  * @swagger
  * /api/v1/university/search:
@@ -21,6 +22,7 @@ const {
  *       200:
  *         description: Universities fetched successfully 
  */
+
 router.get("/search", searchUniversity);
 
 /**
