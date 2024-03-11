@@ -25,7 +25,7 @@ const mongoose = require('mongoose')
  *         startDate:
  *           type: string
  *           default: "10/10/2005"
- *         expiredDate
+ *         expiredDate:  # Fix here: place the colon on the same line
  *           type: string
  *           default: "10/10/2008"
  *     CertificateResponse:
@@ -41,9 +41,10 @@ const mongoose = require('mongoose')
  *           type: string
  *         startDate:
  *           type: string
- *         expiredDate
+ *         expiredDate:
  *           type: string
  */
+
 
 const certificateSchema = new mongoose.Schema(
   { 

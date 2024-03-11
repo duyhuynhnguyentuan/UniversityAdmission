@@ -1,10 +1,10 @@
 const express = require("express");
 const {
-    createSubjectG,
-    getaSubjectG,
-    getAllSubjectG,
-    updatedSubjectG,
-    deletedCSubjectG,
+  createSubjectG,
+  getaSubjectG,
+  getAllSubjectG,
+  updatedSubjectG,
+  deletedCSubjectG,
 } = require('../controllers/SubjectGCtrl');
 const router = express.Router();
 
@@ -22,24 +22,21 @@ const router = express.Router();
  *       properties:
  *         name:
  *           type: string
- *           description: The auto-generated id of the book
  *         description:
  *           type: string
- *         majorInPlan: The Subjects profile
+ *         majorInPlan:
  *           type: object
- *           description: The auto-generated id of the book
  *         subjects:
  *           type: object
- *           description: The Subjects profile
- *         
-
  */
- /**
-  * @swagger
-  * tags:
-  *   name: SubjectGroup
-  *   description: The SubjectGroup managing API
-  */
+
+/**
+ * @swagger
+ * tags:
+ *   name: SubjectGroup
+ *   description: The SubjectGroup managing API
+ */
+
 /**
  * @swagger
  * /api/v1/subjectg:
@@ -64,6 +61,7 @@ const router = express.Router();
  */
 
 router.post("/", createSubjectG);
+
 /**
  * @swagger
  * /api/v1/subjectg/{id}:
@@ -80,14 +78,16 @@ router.post("/", createSubjectG);
  *     responses:
  *       200:
  *         description: The SubjectGroup description by id
- *         contens:
+ *         content:
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/SubjectGroup'
  *       404:
  *         description: The SubjectGroup was not found
  */
+
 router.get("/:id", getaSubjectG);
+
 /**
  * @swagger
  * /api/v1/subjectg:
@@ -104,39 +104,43 @@ router.get("/:id", getaSubjectG);
  *               items:
  *                 $ref: '#/components/schemas/SubjectGroup'
  */
+
 router.get("/", getAllSubjectG);
+
 /**
  * @swagger
  * /api/v1/subjectg/{id}:
- *  put:
- *    summary: Update the SubjectGroup by the id
- *    tags: [SubjectGroup]
- *    parameters:
- *      - in: path
- *        name: id
- *        schema:
- *          type: string
- *        required: true
- *        description: The SubjectGroup id
- *    requestBody:
- *      required: true
- *      content:
- *        application/json:
- *          schema:
- *            $ref: '#/components/schemas/SubjectGroup'
- *    responses:
- *      200:
- *        description: The SubjectGroup was updated
- *        content:
- *          application/json:
- *            schema:
- *              $ref: '#/components/schemas/SubjectGroup'
- *      404:
- *        description: The SubjectGroup was not found
- *      500:
- *        description: Some error happened
+ *   put:
+ *     summary: Update the SubjectGroup by the id
+ *     tags: [SubjectGroup]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: The SubjectGroup id
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/SubjectGroup'
+ *     responses:
+ *       200:
+ *         description: The SubjectGroup was updated
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/SubjectGroup'
+ *       404:
+ *         description: The SubjectGroup was not found
+ *       500:
+ *         description: Some error happened
  */
+
 router.put("/:id", updatedSubjectG);
+
 /**
  * @swagger
  * /api/v1/subjectg/{id}:
@@ -150,13 +154,13 @@ router.put("/:id", updatedSubjectG);
  *           type: string
  *         required: true
  *         description: The SubjectGroup id
- * 
  *     responses:
  *       200:
  *         description: The SubjectGroup was deleted
  *       404:
  *         description: The SubjectGroup was not found
  */
-router.delete("/:id",deletedCSubjectG);
+
+router.delete("/:id", deletedCSubjectG);
 
 module.exports = router;
