@@ -5,13 +5,9 @@ const {
   getAllStudyProfileSJ,
   uploadXLSX,
 } = require("../controllers/StudyProfileSJCtrl");
-  createStudyProfileSJ,
-  getaStudyProfileSJ,
-  getAllStudyProfileSJ,
-  uploadXLSX,
-} = require("../controllers/StudyProfileSJCtrl");
 const router = express.Router();
 const upload = require("../utils/upload");
+
 /**
  * @swagger
  * components:
@@ -28,17 +24,14 @@ const upload = require("../utils/upload");
  *         subjects:
  *           type: object
  *           description: The StudyProfileSubject grade
-
  */
- /**
-  * @swagger
-  * tags:
-  *   name: StudyProfileSubject
-  *   description: The StudyProfileSubject managing API
-  */
 
-
-
+/**
+ * @swagger
+ * tags:
+ *   name: StudyProfileSubject
+ *   description: The StudyProfileSubject managing API
+ */
 
 /**
  * @swagger
@@ -81,7 +74,7 @@ router.post("/", createStudyProfileSJ);
  *     responses:
  *       200:
  *         description: The StudyProfileSubject description by id
- *         contens:
+ *         content:
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/StudyProfileSubject'
@@ -89,29 +82,6 @@ router.post("/", createStudyProfileSJ);
  *         description: The StudyProfileSubject was not found
  */
 
-/**
- * @swagger
- * /api/v1/stdpsj/{id}:
- *   get:
- *     summary: Get the StudyProfileSubject by id
- *     tags: [StudyProfileSubject]
- *     parameters:
- *       - in: path
- *         name: id
- *         schema:
- *           type: string
- *         required: true
- *         description: The StudyProfileSubject id
- *     responses:
- *       200:
- *         description: The StudyProfileSubject description by id
- *         contens:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/StudyProfileSubject'
- *       404:
- *         description: The StudyProfileSubject was not found
- */
 router.get("/:id", getaStudyProfileSJ);
 
 /**
@@ -131,29 +101,13 @@ router.get("/:id", getaStudyProfileSJ);
  *                 $ref: '#/components/schemas/StudyProfileSubject'
  */
 
-/**
- * @swagger
- * /api/v1/stdpsj:
- *   get:
- *     summary: Returns the list of all the StudyProfileSubject
- *     tags: [StudyProfileSubject]
- *     responses:
- *       200:
- *         description: The list of the StudyProfileSubject
- *         content:
- *           application/json:
- *             schema:
- *               type: array
- *               items:
- *                 $ref: '#/components/schemas/StudyProfileSubject'
- */
 router.get("/", getAllStudyProfileSJ);
 
 /**
  * @swagger
  * /api/v1/stdpsj/upload:
  *   post:
- *     summary: Create a upload StudyProfileSubject
+ *     summary: Upload StudyProfileSubject data from an XLSX file
  *     tags: [StudyProfileSubject]
  *     requestBody:
  *       required: true
@@ -171,7 +125,6 @@ router.get("/", getAllStudyProfileSJ);
  *       500:
  *         description: Some server error
  */
-
 
 router.post("/upload", upload.single("xlsx"), uploadXLSX);
 
