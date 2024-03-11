@@ -91,24 +91,20 @@ const deleteUniversity = asyncHandler(async (req, res) => {
 // search university
 
 const searchUniversity = async (req, res) => {
-  const { query } = req.query; // Assuming the search query is passed as a query parameter
-  if (!query) {
-    return res.status(400).json({ error: "Query parameter is missing" });
-  }
-  console.log(query);
+  const { name, code, abbreviation, yearEstablish, contactInfo, address } = req.query;
+
   try {
-    const result = await University.find({
-      $or: [
-        { name: { $regex: query.toString(), $options: "i" } },
-        { code: { $regex: query.toString(), $options: "i" } },
-        { abbreviation: { $regex: query.toString(), $options: "i" } },
-        { yearEstablish: parseInt(query) || 0 },
-        { contactInfo: { $regex: query.toString(), $options: "i" } },
-        { address: { $regex: query.toString(), $options: "i" } },
-      ],
-    }).populate(
-        "province major admissionPlan"
-      ); // Populate referenced documents
+    let queryConditions = {};
+
+    // Check if any search parameter is provided
+    if (name) queryConditions.name = { $regex: name.toString(), $options: "i" };
+    if (code) queryConditions.code = { $regex: code.toString(), $options: "i" };
+    if (abbreviation) queryConditions.abbreviation = { $regex: abbreviation.toString(), $options: "i" };
+    if (yearEstablish) queryConditions.yearEstablish = parseInt(yearEstablish) || 0;
+    if (contactInfo) queryConditions.contactInfo = { $regex: contactInfo.toString(), $options: "i" };
+    if (address) queryConditions.address = { $regex: address.toString(), $options: "i" };
+
+    const result = await University.find(queryConditions).populate("province major admissionPlan");
 
     return res.status(200).json(result);
   } catch (error) {
@@ -116,6 +112,9 @@ const searchUniversity = async (req, res) => {
     return res.status(500).json({ error: "Internal server error" });
   }
 };
+
+
+
 
 module.exports = {
   createUniversity,

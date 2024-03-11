@@ -53,7 +53,7 @@ const mongoose = require("mongoose");
  *           type: string
  *         description:
  *           type: string
- *         yearEstablished:
+ *         yearEstablish:
  *           type: number
  *         admissionPolicy:
  *           type: string

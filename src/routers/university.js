@@ -9,6 +9,18 @@ const {
     deleteUniversity,
     searchUniversity
 } = require('../controllers/UniversityCtrl');
+/**
+ * @swagger
+ * /api/v1/university/search:
+ *   get:
+ *     tags:
+ *       - Get a list of universities based on search filter.
+ *     summary: Get a List of Universities
+ *     description: Get information about all fetched universities on specified search scope.
+ *     responses:
+ *       200:
+ *         description: Universities fetched successfully 
+ */
 router.get("/search", searchUniversity);
 
 /**
