@@ -5,7 +5,8 @@ const {
     createUser,
     loginUserCtrl,
     handleRefreshToken,
-    logout
+    logout,
+    getUser,
 } = require("../controllers/UserCtrl");
 
 /**
@@ -66,5 +67,6 @@ router.post("/register",createUser);
 router.post("/login", loginUserCtrl);
 router.get("/refresh",handleRefreshToken);
 router.get("/logout", logout);
+router.get("/user/:id", getUser);
 
 module.exports = router

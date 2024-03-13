@@ -82,7 +82,21 @@ const logout = asyncHandler(async (req, res) => {
       secure: true,
     });
   });
-  res.redirect("/login");
+  res.json("Logout")
+});
+
+//fetching user information for authenticated purposes
+
+const getUser = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+  validateMongoDbId(id);
+  try {
+    const user = await User.findById(id).select('-password');
+    //omit user password from response
+    res.json(user);
+  } catch (error) {
+    throw new Error(error);
+  }
 });
 
 module.exports = {
@@ -90,4 +104,5 @@ module.exports = {
   loginUserCtrl,
   handleRefreshToken,
   logout,
+  getUser,
 };
