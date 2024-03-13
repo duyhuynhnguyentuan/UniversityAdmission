@@ -82,6 +82,7 @@ const logout = asyncHandler(async (req, res) => {
       secure: true,
     });
   });
+//send Logout to response
   res.json("Logout")
 });
 
@@ -97,6 +98,7 @@ const getUser = asyncHandler(async (req, res) => {
   } catch (error) {
     throw new Error(error);
   }
+
 });
 
 module.exports = {
