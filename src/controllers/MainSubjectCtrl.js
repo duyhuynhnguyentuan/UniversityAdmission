@@ -25,10 +25,7 @@ const getAllMainsubject = asyncHandler(async (req, res) => {
     }
 
     const mainsubjects = await MainSubject.find(query);
-    res.json({
-      count: mainsubjects.length,
-      data: mainsubjects
-    });
+    res.json(mainsubjects);
   } catch (error) {
     throw new Error(error);
   }

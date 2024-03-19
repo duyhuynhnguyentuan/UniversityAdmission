@@ -25,10 +25,7 @@ const getAllHighSchool = asyncHandler(async (req, res) => {
     }
 
     const highSchools = await HighSchool.find(query);
-    res.json({
-      count: highSchools.length,
-      data: highSchools
-    });
+    res.json(highSchools);
   } catch (error) {
     throw new Error(error);
   }
