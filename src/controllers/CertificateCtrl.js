@@ -25,10 +25,7 @@ const getAllCertificate = asyncHandler(async (req, res) => {
     }
 
     const certificates = await Certificate.find(query);
-    res.json({
-      count: certificates.length,
-      data: certificates
-    });
+    res.json(certificates);
   } catch (error) {
     throw new Error(error);
   }

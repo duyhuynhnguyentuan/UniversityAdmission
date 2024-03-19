@@ -9,6 +9,30 @@ const {
     deleteUniversity,
     searchUniversity
 } = require('../controllers/UniversityCtrl');
+
+/** 
+ * @swagger
+ * /api/v1/university/search?query={query}:
+ *   get:
+ *     tags:
+ *       - University routes
+ *     summary: Get a specific University
+ *     description: Get information about a specific university
+ *     parameters:
+ *       - in: path
+ *         name: query
+ *         required: true
+ *         description: The query of the University
+ *     responses: 
+ *       '200':   
+ *         description: University fetched successfully
+ *         content:
+ *           application/json:
+ *             schema: 
+ *                $ref: '#/components/schemas/UniversityResponse'
+ *       '404':
+ *         description: University not found 
+ */
 router.get("/search", searchUniversity);
 
 /**

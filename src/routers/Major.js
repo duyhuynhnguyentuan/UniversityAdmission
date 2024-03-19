@@ -32,6 +32,8 @@ const router = express.Router();
  *               $ref: '#/components/schemas/MajorResponse' 
  */
 router.post('/', createMajor);
+
+router.get('/search', searchMajor);
 /**
  * @swagger
  * /api/v1/major:
@@ -51,26 +53,52 @@ router.get('/', getAllMajors);
  *   get:
  *     tags:
  *       - Major routes
- *     summary: Get a specific Highschool
+ *     summary: Get a specific Major
  *     description: Get information about a specific Major
  *     parameters:
  *       - in: path
  *         name: id
  *         required: true
- *         description: The id of the University
+ *         description: The id of the Major
  *     responses: 
  *       '200':   
- *         description: Highschool fetched successfully
+ *         description: Major fetched successfully
  *         content:
  *           application/json:
  *             schema: 
  *                $ref: '#/components/schemas/MajorResponse'
  *       '404':
- *         description: Highschool not found 
+ *         description: Major not found 
  */
 
-router.get('/search', searchMajor);
 router.get('/:id', getMajorById);
+
+/** 
+ * @swagger
+ * /api/v1/major/search?query={query}:
+ *   get:
+ *     tags:
+ *       - Major routes
+ *     summary: Get a specific Major
+ *     description: Get information about a specific Major
+ *     parameters:
+ *       - in: path
+ *         name: query
+ *         required: true
+ *         description: The query of the Major
+ *     responses: 
+ *       '200':   
+ *         description: Major fetched successfully
+ *         content:
+ *           application/json:
+ *             schema: 
+ *                $ref: '#/components/schemas/MajorResponse'
+ *       '404':
+ *         description: Major not found 
+ */
+
+
+
 /** 
  * @swagger
  * /api/v1/major/{id}:
