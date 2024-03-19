@@ -10,29 +10,19 @@ const {
     searchUniversity
 } = require('../controllers/UniversityCtrl');
 
-/** 
+/**
  * @swagger
- * /api/v1/university/search?query={query}:
+ * /api/v1/university/search:
  *   get:
  *     tags:
- *       - University routes
- *     summary: Get a specific University
- *     description: Get information about a specific university
- *     parameters:
- *       - in: path
- *         name: query
- *         required: true
- *         description: The query of the University
- *     responses: 
- *       '200':   
- *         description: University fetched successfully
- *         content:
- *           application/json:
- *             schema: 
- *                $ref: '#/components/schemas/UniversityResponse'
- *       '404':
- *         description: University not found 
+ *       - Get a list of universities based on search filter.
+ *     summary: Get a List of Universities
+ *     description: Get information about all fetched universities on specified search scope.
+ *     responses:
+ *       200:
+ *         description: Universities fetched successfully 
  */
+
 router.get("/search", searchUniversity);
 
 /**
