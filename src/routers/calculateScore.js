@@ -35,6 +35,7 @@ router.get('/', async (req, res) => {
 
     // Extracting required fields and constructing response
     const responseData = admissionMethods.map(admissionMethod => ({
+      id: admissionMethod._id,
       AdmissionScore: admissionMethod.AdmissionScore,
       NumberOfStudent: admissionMethod.NumberOfStudent,
       schoolYear: admissionMethod.schoolYear.map(year => year.year),
