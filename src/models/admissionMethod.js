@@ -46,8 +46,10 @@ const admissionMethodSchema = new mongoose.Schema(
       type: Number,
       require: true
     },
+    schoolYear: [{type: mongoose.Schema.Types.ObjectId, ref: "SchoolYear" }],
     majorInPlan: [{ type: mongoose.Schema.Types.ObjectId, ref: "MajorInPlan" }],
-  
+    major: [{type: mongoose.Schema.Types.ObjectId, ref: "Major"}],
+    university: [{type: mongoose.Schema.Types.ObjectId, ref: "University"}]
   },
   {
     timestamps: true
