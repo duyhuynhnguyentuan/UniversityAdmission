@@ -30,6 +30,7 @@ const admissionMethod = require('./routers/admissionMethod');
 const majorInPlan = require('./routers/majorInPlan');
 const major = require('./routers/Major');
 const formalMajor = require('./routers/formalMajor');
+const calculateRouter = require('./routers/calculateScore');
 const options = {
 	definition: {
 		openapi: "3.0.0",
@@ -100,7 +101,7 @@ app.use("/api/v1/highSchool", highSchoolRouter);
 app.use("/api/v1/mainSubject", mainSubjectRouter);
 app.use("/api/v1/certificate", certificateRouter);
 app.use("/api/v1/certificateType", certificateTypeRouter);
-
+app.use("/api/v1/calculate", calculateRouter);
 app.use(notFound);
 app.use(errorHandler);
 app.get("/", (request, response) => {
