@@ -57,6 +57,7 @@ const getAllUniversities = asyncHandler(async (req, res) => {
     .populate(
       'province'
     )
+    .populate('admissionPlan', "_id schoolYear planDescription")
     .select('name description abbreviation code address contactInfo admissionPolicy yearEstablish');
     res.json(getAllUniversities);
   } catch (error) {

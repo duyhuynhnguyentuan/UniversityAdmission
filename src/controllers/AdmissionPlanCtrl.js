@@ -1,5 +1,5 @@
 ///DuyHNT
-const AdmissionPlan = require("..//models/admissionPlan");
+const AdmissionPlan = require("../models/admissionPlan");
 const asyncHandler = require("express-async-handler");
 const validateMongoDbId = require("../utils/validateMongoDbId");
 
@@ -25,6 +25,16 @@ const getaAdmissionPlan = asyncHandler(async (req, res) => {
   }
 });
 
+const getAdmissionPlanForUni = asyncHandler(async (req, res) => {
+  try{
+  const getAdmissionPlanForUni = await AdmissionPlan.find({})
+  .populate('schoolYear')
+  .select('_id planDescription');
+   res.json(getAdmissionPlanForUni);
+ }catch (error) {
+  throw new Error(error);
+}
+});
 // get all admission plan
 const getAllAdmissionPlan = asyncHandler(async (req, res) => {
   try {
@@ -61,10 +71,12 @@ const deletedAdmissionPlan = asyncHandler(async (req, res) => {
   }
 });
 
+
 module.exports = {
-    createAdmissionPlan,
-    getaAdmissionPlan,
-    getAllAdmissionPlan,
-    updatedAdmissionPlan,
-    deletedAdmissionPlan,
-}
+  createAdmissionPlan,
+  getaAdmissionPlan,
+  getAllAdmissionPlan,
+  updatedAdmissionPlan,
+  deletedAdmissionPlan,
+  getAdmissionPlanForUni
+};
