@@ -5,7 +5,9 @@ const {
     getAllAdmissionPlan,
     updatedAdmissionPlan,
     deletedAdmissionPlan,
+    getAdmissionPlanForUni,
 } = require('../controllers/AdmissionPlanCtrl');
+const AdmissionPlan = require("../models/admissionPlan");
 
 const express = require('express');
 const router = express.Router();
@@ -138,5 +140,27 @@ router.put("/:id", updatedAdmissionPlan);
  *         description: No admission plan found 
  */
 router.delete("/:id", deletedAdmissionPlan);
+// admissionPlanRouter.js
+
+
+
+router.get('/all/all', async (req, res) => {
+  try {
+    const admissionPlans = await AdmissionPlan.find({})
+      .populate({
+        path: 'schoolYear',
+        select: 'year -_id' // Select only _id and planDescription fields
+      })
+      .select('_id planDescription'); // Select only _id and planDescription fields from AdmissionPlan
+
+    res.json(admissionPlans);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server Error' });
+  }
+});
 
 module.exports = router;
+
+
+
